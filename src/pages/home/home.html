@@ -4,9 +4,6 @@ Mid Term
 COMP3025-W2017
 HTML File
 -->
-<ion-header center text-center>
-</ion-header>
-
 <ion-content center text-center>
   <ion-list>
     <ion-item>
@@ -15,36 +12,28 @@ HTML File
     <ion-item>
       <ion-input type="text" value="My Shopping List"></ion-input>
     </ion-item>
-       <ion-item>
-      <ion-row>
-        <ion-col width-50 center text-center>
-          Add new Item
-        </ion-col>
-      </ion-row>
-    </ion-item>
     <ion-item>
       <ion-row>
         <ion-col width-50 center text-center>
-          List Items
+          <h4>List Items</h4>
         </ion-col>
         <ion-col width-50 center text-center>
-            Quantity
+            <h4>Quantity</h4>
         </ion-col>
       </ion-row>
     </ion-item>
-
-     <ion-item-sliding>
+     <ion-item-sliding *ngFor="let shoppingListItem of listItems | async; let i = index;">
       <ion-item>
         <ion-row>
           <ion-col width-50 center text-center>
-            eggs
+            {{i + 1}}. {{shoppingListItem.item}}
           </ion-col>
           <ion-col width-50 center text-center>
-            <button ion-button color="primary">
+            <button ion-button color="primary" (click)="minusItem(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-back"></ion-icon>
             </button>
-              12
-            <button ion-button color="primary">
+              {{shoppingListItem.itemCount}}
+            <button ion-button color="primary" (click)="addItem(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-forward"></ion-icon>
             </button>
           </ion-col>
@@ -58,13 +47,13 @@ HTML File
     </ion-item-sliding>
     <ion-row>
       <ion-col width-50 center text-center>
-        <button ion-button color="danger">
-          Cancel
+          <button ion-button color="secondary">
+          Save
         </button>
       </ion-col>
       <ion-col width-50 center text-center>
-        <button ion-button color="secondary">
-          Save
+       <button ion-button color="danger">
+          Cancel
         </button>
       </ion-col>
     </ion-row>

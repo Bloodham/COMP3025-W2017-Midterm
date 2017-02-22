@@ -17,7 +17,25 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
     af: AngularFire, public actionSheetCtrl: ActionSheetController) {
-    this.listItems = af.database.list('/');
+    this.listItems = af.database.list('/shoppingList');
+  }
+minusItem(itemId, itemCount){
+      if(itemCount >= 1){
+        //itemCount = itemCount - 1;
+      this.listItems.update(itemId, {
+        itemCount: itemCount -1
+      });
+    }
+    if(itemCount <= 0){
+      this.listItems.update(itemId, {
+        itemCount: 0
+      });
+    }
   }
 
+  addItem(itemId, itemCount){
+      this.listItems.update(itemId, {
+        itemCount: itemCount + 1
+      });
+  }  
 }

@@ -1,0 +1,34 @@
+{
+    "shoppingList": [
+        {
+            "weeklyList": [
+                {
+                    "item": "Vanilla",
+                    "itemCount": 1
+                },
+                {
+                    "item": "Milk",
+                    "itemCount": 3
+                },
+                {
+                    "item": "Chocolate",
+                    "itemCount": 6
+                }
+            ],
+            "biWeeklyList": [
+                {
+                    "item": "Tequila.",
+                    "itemCount": 1
+                },
+                {
+                    "item": "Beer",
+                    "itemCount": 1
+                },
+                {
+                    "item": "Vodka",
+                    "itemCount": 1
+                }
+            ]
+        }
+    ]
+}

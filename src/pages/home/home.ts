@@ -19,6 +19,7 @@ export class HomePage {
     af: AngularFire, public actionSheetCtrl: ActionSheetController) {
     this.listItems = af.database.list('/shoppingList');
   }
+  //Change Quantity of the item
 minusItemCount(itemId, itemCount){
       if(itemCount >= 1){
         //itemCount = itemCount - 1;
@@ -32,13 +33,13 @@ minusItemCount(itemId, itemCount){
       });
     }
   }
-
+//Add Count to Quantity
 addItemCount(itemId, itemCount){
       this.listItems.update(itemId, {
         itemCount: itemCount + 1
       });
   }
-
+// Add an Item to the list
    addItem(){    
     let prompt = this.alertCtrl.create({
     title: 'Shopping List Item',
@@ -73,4 +74,8 @@ addItemCount(itemId, itemCount){
    });
    prompt.present();
   }  
+  //Remove Item
+   removeItem(itemId: string){
+    this.listItems.remove(itemId);
+  }
 }

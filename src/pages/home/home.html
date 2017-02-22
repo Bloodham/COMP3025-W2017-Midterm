@@ -40,7 +40,7 @@ HTML File
         </ion-row>
       </ion-item>
       <ion-item-options>
-        <button ion-button large color="danger">
+        <button ion-button large color="danger"(click)="removeItem(shoppingListItem.$key)">
           <ion-icon name="md-close"></ion-icon>
         </button>
       </ion-item-options>

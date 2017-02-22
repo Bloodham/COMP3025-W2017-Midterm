@@ -15,10 +15,10 @@ HTML File
     <ion-item>
       <ion-row>
         <ion-col width-50 center text-center>
-          <h4>List Items</h4>
+          <h3>List of Items</h3>
         </ion-col>
         <ion-col width-50 center text-center>
-            <h4>Quantity</h4>
+            <h3>Quantity of Items</h3>
         </ion-col>
       </ion-row>
     </ion-item>
@@ -29,11 +29,11 @@ HTML File
             {{i + 1}}. {{shoppingListItem.item}}
           </ion-col>
           <ion-col width-50 center text-center>
-            <button ion-button color="primary" (click)="minusItem(shoppingListItem.$key, shoppingListItem.itemCount)">
+            <button ion-button color="primary" (click)="minusItemCount(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-back"></ion-icon>
             </button>
               {{shoppingListItem.itemCount}}
-            <button ion-button color="primary" (click)="addItem(shoppingListItem.$key, shoppingListItem.itemCount)">
+            <button ion-button color="primary" (click)="addItemCount(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-forward"></ion-icon>
             </button>
           </ion-col>
@@ -58,5 +58,8 @@ HTML File
       </ion-col>
     </ion-row>
   </ion-list>
-    
+    <button ion-button round block (click)="addItem()">
+    <ion-icon name="add"></ion-icon>
+    Add New Item to The Shopping List
+  </button> 
 </ion-content>
